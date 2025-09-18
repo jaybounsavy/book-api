@@ -7,13 +7,13 @@ book_bp = Blueprint('books', __name__, url_prefix='/api/books')
 
 # In-memory storage for books (minimum 5 book objects as requested)
 books_data: List[Book] = [
-    Book(1, "To Kill a Mockingbird", "Harper Lee", "English", "978-0-06-112008-4", 1960, "Fiction"),
-    Book(2, "1984", "George Orwell", "English", "978-0-452-28423-4", 1949, "Dystopian Fiction"),
-    Book(3, "Pride and Prejudice", "Jane Austen", "English", "978-0-14-143951-8", 1813, "Romance"),
-    Book(4, "The Great Gatsby", "F. Scott Fitzgerald", "English", "978-0-7432-7356-5", 1925, "Fiction"),
-    Book(5, "One Hundred Years of Solitude", "Gabriel García Márquez", "Spanish", "978-0-06-088328-7", 1967, "Magical Realism"),
-    Book(6, "The Catcher in the Rye", "J.D. Salinger", "English", "978-0-316-76948-0", 1951, "Fiction"),
-    Book(7, "Don Quixote", "Miguel de Cervantes", "Spanish", "978-0-06-093434-4", 1605, "Adventure")
+    Book(1, "To Kill a Mockingbird", "Harper Lee", 1960, "English", 336),
+    Book(2, "1984", "George Orwell", 1949, "English", 328),
+    Book(3, "Pride and Prejudice", "Jane Austen", 1813, "English", 279),
+    Book(4, "The Great Gatsby", "F. Scott Fitzgerald", 1925, "English", 180),
+    Book(5, "One Hundred Years of Solitude", "Gabriel García Márquez", 1967, "Spanish", 417),
+    Book(6, "The Catcher in the Rye", "J.D. Salinger", 1951, "English", 277),
+    Book(7, "Don Quixote", "Miguel de Cervantes", 1605, "Spanish", 863)
 ]
 
 def find_book_by_id(book_id: int) -> Optional[Book]:
@@ -34,6 +34,7 @@ def get_all_books():
             "total": len(books_data)
         }), 200
     except Exception as e:
+        print(e)
         return jsonify({
             "status": "error",
             "message": "Failed to fetch books"

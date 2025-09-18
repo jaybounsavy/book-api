@@ -41,3 +41,14 @@ class Book:
     def __str__(self):
         """Return a human-readable string representation of the Book object."""
         return f"{self.title} by {self.author} ({self.published_date})"
+
+    def to_dict(self):
+        """Return a dictionary representation of the Book object."""
+        return {
+            "id": self.id,
+            "title": self.title,
+            "author": self.author,
+            "published_date": self.published_date,
+            "language": self.language,
+            "no_of_pages": self.no_of_pages
+        }
