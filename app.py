@@ -12,7 +12,7 @@ app.register_blueprint(book_bp)
  
 @app.route('/', methods=['GET'])
 def home():
-    return "Welcome to the Flask API!"
+    return "Welcome to the Flask API!.  This is Jay Bounsavy."
  
 if __name__ == '__main__':
     app.run(debug=True)
